@@ -51,7 +51,7 @@
         </div>
         
         <footer class="text-center mt-5 mb-3">
-            <p class="text-muted">&copy; 2023 Sistema de Gestión de Invitados</p>
+            <p class="text-muted">&copy; 2025 Sistema de Gestión de Invitados</p>
         </footer>
     </div>
     
