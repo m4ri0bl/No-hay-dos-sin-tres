@@ -1,0 +1,164 @@
+/* Estilos generales */
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+/* Estilos para el encabezado */
+header h1 {
+  color: #343a40;
+  font-weight: 600;
+}
+
+/* Estilos para las tarjetas */
+.card {
+  border-radius: 10px;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Estilos para los botones */
+.btn {
+  border-radius: 5px;
+  padding: 8px 16px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #4361ee;
+  border-color: #4361ee;
+}
+
+.btn-primary:hover {
+  background-color: #3a56d4;
+  border-color: #3a56d4;
+}
+
+.btn-success {
+  background-color: #38b000;
+  border-color: #38b000;
+}
+
+.btn-success:hover {
+  background-color: #2d9900;
+  border-color: #2d9900;
+}
+
+.btn-danger {
+  background-color: #d90429;
+  border-color: #d90429;
+}
+
+.btn-danger:hover {
+  background-color: #c00424;
+  border-color: #c00424;
+}
+
+.btn-info {
+  background-color: #4cc9f0;
+  border-color: #4cc9f0;
+  color: #fff;
+}
+
+.btn-info:hover {
+  background-color: #3ab7dc;
+  border-color: #3ab7dc;
+  color: #fff;
+}
+
+/* Estilos para la tabla */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-dark th {
+  background-color: #343a40;
+  color: white;
+  font-weight: 500;
+}
+
+/* Estilos para los formularios */
+.form-control {
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+/* Estilos para el pie de página */
+footer {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.card,
+.alert {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilos para el dashboard */
+.card-footer {
+  padding: 0.5rem 1rem;
+}
+
+.card-footer a:hover {
+  text-decoration: underline !important;
+}
+
+/* Estilos para impresión */
+@media print {
+  .btn,
+  .card-footer,
+  header div a,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: white;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
