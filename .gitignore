@@ -49,3 +49,9 @@ buildNumber.properties
 .DS_Store
 Thumbs.db
 
+<<<<<<< HEAD
+=======
+# Environment variables
+.env
+
+>>>>>>> 99b8d1f (Primer commit con mi código)

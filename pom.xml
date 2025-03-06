@@ -63,11 +63,19 @@
             <version>2.0.7</version>
         </dependency>
         
+<<<<<<< HEAD
         <!-- SLF4J Simple (para logging) -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.7</version>
+=======
+        <!-- Logback para implementación de SLF4J -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.11</version>
+>>>>>>> 99b8d1f (Primer commit con mi código)
         </dependency>
     </dependencies>
 
