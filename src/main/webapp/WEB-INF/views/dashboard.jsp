@@ -201,7 +201,7 @@
         const confirmedGuests = ${confirmedGuests};
         const pendingGuests = ${pendingGuests};
 
-        Chart.defaults.color = '#a0aec0';
+        Chart.defaults.color = '#d1d8e6';
         Chart.defaults.font.family = "'Inter', sans-serif";
 
         const guestsChart = new Chart(ctx, {

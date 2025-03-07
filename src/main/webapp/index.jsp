@@ -38,7 +38,7 @@
                         <i class="fas fa-users fa-4x" style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                     </div>
                     <h2 class="mb-4 fw-bold">¡Bienvenido!</h2>
-                    <p class="mb-4 text-secondary">Desde aquí podrás gestionar todos los invitados a tu evento.</p>
+                    <p class="mb-4 text-white">Desde aquí podrás gestionar todos los invitados a tu evento.</p>
 
                     <div class="d-grid gap-3 col-md-8 mx-auto">
                         <a href="<c:url value='/guests?action=dashboard'/>" class="btn btn-info btn-lg">

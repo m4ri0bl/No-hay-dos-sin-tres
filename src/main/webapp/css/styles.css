@@ -7,9 +7,9 @@
   --electric-blue: #00c6ff;
   --neon-blue: #4361ee;
   --neon-purple: #7b2ff7;
-  --text-primary: #f8f9fa;
-  --text-secondary: #a0aec0;
-  --text-muted: #718096;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d8e6;
+  --text-muted: #a0aec0;
   --success: #0cca98;
   --warning: #ffb700;
   --danger: #ff3860;
@@ -58,6 +58,7 @@ header h1 {
   box-shadow: var(--box-shadow);
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
+  color: var(--text-primary);
 }
 
 .card:hover {
@@ -70,6 +71,7 @@ header h1 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   font-weight: 600;
   padding: 1rem 1.5rem;
+  color: var(--text-primary);
 }
 
 .card-body {
@@ -299,23 +301,23 @@ header h1 {
 }
 
 .alert-success {
-  background-color: rgba(12, 202, 152, 0.1);
-  color: var(--success);
+  background-color: rgba(12, 202, 152, 0.2);
+  color: #0cffb9;
 }
 
 .alert-danger {
-  background-color: rgba(255, 56, 96, 0.1);
-  color: var(--danger);
+  background-color: rgba(255, 56, 96, 0.2);
+  color: #ff6b8e;
 }
 
 .alert-warning {
-  background-color: rgba(255, 183, 0, 0.1);
-  color: var(--warning);
+  background-color: rgba(255, 183, 0, 0.2);
+  color: #ffd04d;
 }
 
 .alert-info {
-  background-color: rgba(54, 185, 204, 0.1);
-  color: var(--info);
+  background-color: rgba(54, 185, 204, 0.2);
+  color: #6ad4e5;
 }
 
 /* Pie de página */
@@ -323,6 +325,15 @@ footer {
   color: var(--text-muted);
   font-size: 0.9rem;
   padding: 2rem 0;
+}
+
+/* Clases de texto */
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
 }
 
 /* Animaciones */

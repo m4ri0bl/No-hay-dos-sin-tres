@@ -73,7 +73,7 @@
                             <div class="invalid-feedback">
                                 Por favor, introduce un número de teléfono válido (9 dígitos).
                             </div>
-                            <div class="form-text">Formato: 612345678</div>
+                            <div class="form-text" style="color: #d1d8e6;">Formato: 612345678</div>
                         </div>
 
                         <div class="mb-4 form-check">
