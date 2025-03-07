@@ -9,6 +9,9 @@
     <title>Dashboard - Sistema de Gestión de Invitados</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value='/css/styles.css'/>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -16,7 +19,7 @@
 <div class="container py-4">
     <header class="mb-4">
         <div class="d-flex justify-content-between align-items-center">
-            <h1><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h1>
+            <h1><i class="fas fa-tachometer-alt me-2" style="color: var(--electric-blue);"></i>Dashboard</h1>
             <div>
                 <a href="<c:url value='/guests?action=list'/>" class="btn btn-outline-primary me-2">
                     <i class="fas fa-list me-2"></i>Ver Lista
@@ -29,21 +32,21 @@
     </header>
 
     <!-- Tarjetas de estadísticas -->
-    <div class="row mb-4">
+    <div class="row mb-4 g-3">
         <div class="col-md-4">
             <div class="card bg-primary text-white shadow-sm">
-                <div class="card-body">
+                <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="card-title">Total Invitados</h6>
-                            <h2 class="mb-0">${totalGuests}</h2>
+                            <h6 class="card-title fw-bold">Total Invitados</h6>
+                            <h2 class="mb-0 fw-bold">${totalGuests}</h2>
                         </div>
                         <div>
                             <i class="fas fa-users fa-3x opacity-50"></i>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer bg-primary border-top border-light border-opacity-25 text-center">
+                <div class="card-footer text-center">
                     <a href="<c:url value='/guests?action=list'/>" class="text-white text-decoration-none">
                         <small>Ver detalles <i class="fas fa-arrow-right ms-1"></i></small>
                     </a>
@@ -52,18 +55,18 @@
         </div>
         <div class="col-md-4">
             <div class="card bg-success text-white shadow-sm">
-                <div class="card-body">
+                <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="card-title">Confirmados</h6>
-                            <h2 class="mb-0">${confirmedGuests}</h2>
+                            <h6 class="card-title fw-bold">Confirmados</h6>
+                            <h2 class="mb-0 fw-bold">${confirmedGuests}</h2>
                         </div>
                         <div>
                             <i class="fas fa-check-circle fa-3x opacity-50"></i>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer bg-success border-top border-light border-opacity-25 text-center">
+                <div class="card-footer text-center">
                     <a href="<c:url value='/guests?action=list'/>" class="text-white text-decoration-none">
                         <small>Ver detalles <i class="fas fa-arrow-right ms-1"></i></small>
                     </a>
@@ -72,18 +75,18 @@
         </div>
         <div class="col-md-4">
             <div class="card bg-warning text-dark shadow-sm">
-                <div class="card-body">
+                <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="card-title">Pendientes</h6>
-                            <h2 class="mb-0">${pendingGuests}</h2>
+                            <h6 class="card-title fw-bold">Pendientes</h6>
+                            <h2 class="mb-0 fw-bold">${pendingGuests}</h2>
                         </div>
                         <div>
                             <i class="fas fa-clock fa-3x opacity-50"></i>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer bg-warning border-top border-dark border-opacity-10 text-center">
+                <div class="card-footer text-center">
                     <a href="<c:url value='/guests?action=list'/>" class="text-dark text-decoration-none">
                         <small>Ver detalles <i class="fas fa-arrow-right ms-1"></i></small>
                     </a>
@@ -93,21 +96,21 @@
     </div>
 
     <!-- Gráfico y tabla de invitados recientes -->
-    <div class="row mb-4">
+    <div class="row mb-4 g-3">
         <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-header bg-light">
-                    <h5 class="card-title mb-0">Distribución de Invitados</h5>
+            <div class="card shadow-sm glass-effect">
+                <div class="card-header">
+                    <h5 class="card-title mb-0 fw-bold">Distribución de Invitados</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-4">
                     <canvas id="guestsChart" width="400" height="300"></canvas>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-header bg-light d-flex justify-content-between align-items-center">
-                    <h5 class="card-title mb-0">Invitados Recientes</h5>
+            <div class="card shadow-sm glass-effect">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0 fw-bold">Invitados Recientes</h5>
                     <a href="<c:url value='/guests?action=list'/>" class="btn btn-sm btn-primary">
                         Ver todos
                     </a>
@@ -155,11 +158,11 @@
     <!-- Acciones rápidas -->
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card shadow-sm">
-                <div class="card-header bg-light">
-                    <h5 class="card-title mb-0">Acciones Rápidas</h5>
+            <div class="card shadow-sm glass-effect">
+                <div class="card-header">
+                    <h5 class="card-title mb-0 fw-bold">Acciones Rápidas</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-4">
                     <div class="row g-3">
                         <div class="col-md-4">
                             <a href="<c:url value='/guests?action=new'/>" class="btn btn-success w-100 d-flex align-items-center justify-content-center gap-2 py-3">
@@ -186,7 +189,7 @@
     </div>
 
     <footer class="text-center mt-5">
-        <p class="text-muted">&copy; 2023 Sistema de Gestión de Invitados</p>
+        <p class="text-muted">&copy; 2025 Sistema de Gestión de Invitados</p>
     </footer>
 </div>
 
@@ -198,6 +201,9 @@
         const confirmedGuests = ${confirmedGuests};
         const pendingGuests = ${pendingGuests};
 
+        Chart.defaults.color = '#a0aec0';
+        Chart.defaults.font.family = "'Inter', sans-serif";
+
         const guestsChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
@@ -205,21 +211,28 @@
                 datasets: [{
                     data: [confirmedGuests, pendingGuests],
                     backgroundColor: [
-                        'rgba(40, 167, 69, 0.8)',
-                        'rgba(255, 193, 7, 0.8)'
+                        'rgba(12, 202, 152, 0.8)',
+                        'rgba(255, 183, 0, 0.8)'
                     ],
                     borderColor: [
-                        'rgba(40, 167, 69, 1)',
-                        'rgba(255, 193, 7, 1)'
+                        'rgba(12, 202, 152, 1)',
+                        'rgba(255, 183, 0, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 2,
+                    hoverOffset: 6
                 }]
             },
             options: {
                 responsive: true,
+                cutout: '70%',
                 plugins: {
                     legend: {
-                        position: 'bottom'
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
                     }
                 }
             }

@@ -9,13 +9,16 @@
     <title>Lista de Invitados</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value='/css/styles.css'/>">
 </head>
 <body>
 <div class="container py-4">
     <header class="mb-4">
         <div class="d-flex justify-content-between align-items-center">
-            <h1>Lista de Invitados</h1>
+            <h1><i class="fas fa-list-ul me-2" style="color: var(--electric-blue);"></i>Lista de Invitados</h1>
             <div>
                 <a href="<c:url value='/guests?action=dashboard'/>" class="btn btn-outline-info me-2">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
@@ -45,28 +48,49 @@
     </c:if>
 
     <!-- Resumen de estadísticas -->
-    <div class="row mb-4">
+    <div class="row mb-4 g-3">
         <div class="col-md-4">
             <div class="card bg-primary text-white">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Total Invitados</h5>
-                    <p class="card-text display-4">${totalGuests}</p>
+                <div class="card-body text-center p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title fw-bold mb-3">Total Invitados</h5>
+                            <p class="card-text display-4 fw-bold mb-0">${totalGuests}</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-users fa-3x opacity-50"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card bg-success text-white">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Confirmados</h5>
-                    <p class="card-text display-4">${confirmedGuests}</p>
+                <div class="card-body text-center p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title fw-bold mb-3">Confirmados</h5>
+                            <p class="card-text display-4 fw-bold mb-0">${confirmedGuests}</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-check-circle fa-3x opacity-50"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card bg-warning text-dark">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Pendientes</h5>
-                    <p class="card-text display-4">${pendingGuests}</p>
+                <div class="card-body text-center p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title fw-bold mb-3">Pendientes</h5>
+                            <p class="card-text display-4 fw-bold mb-0">${pendingGuests}</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock fa-3x opacity-50"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +104,6 @@
         </div>
         <div class="col-md-6">
             <form action="<c:url value='/guests'/>" method="get" class="d-flex">
-                <input type="hidden" name="action" value="search">  method="get" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input type="text" name="searchTerm" class="form-control me-2" placeholder="Buscar por nombre..." value="${searchTerm}">
                 <button type="submit" class="btn btn-primary">
@@ -92,16 +115,16 @@
 
     <c:if test="${not empty searchTerm}">
         <div class="alert alert-info">
-            Resultados para: "${searchTerm}"
+            <i class="fas fa-search me-2"></i>Resultados para: <strong>"${searchTerm}"</strong>
             <a href="<c:url value='/guests?action=list'/>" class="ms-2 btn btn-sm btn-outline-secondary">Ver todos</a>
         </div>
     </c:if>
 
-    <div class="card shadow">
-        <div class="card-body">
+    <div class="card shadow glass-effect">
+        <div class="card-body p-0">
             <c:choose>
                 <c:when test="${empty guests}">
-                    <div class="alert alert-warning">
+                    <div class="alert alert-warning m-4">
                         <i class="fas fa-exclamation-triangle me-2"></i>No hay invitados registrados.
                     </div>
                 </c:when>
@@ -156,7 +179,7 @@
     </div>
 
     <footer class="text-center mt-5">
-        <p class="text-muted">&copy; 2023 Sistema de Gestión de Invitados</p>
+        <p class="text-muted">&copy; 2025 Sistema de Gestión de Invitados</p>
     </footer>
 </div>
 

@@ -8,13 +8,19 @@
     <title>${empty guest ? 'Añadir Nuevo Invitado' : 'Editar Invitado'}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value='/css/styles.css'/>">
 </head>
 <body>
 <div class="container py-4">
     <header class="mb-4">
         <div class="d-flex justify-content-between align-items-center">
-            <h1>${empty guest ? 'Añadir Nuevo Invitado' : 'Editar Invitado'}</h1>
+            <h1>
+                <i class="${empty guest ? 'fas fa-user-plus' : 'fas fa-user-edit'} me-2" style="color: var(--electric-blue);"></i>
+                ${empty guest ? 'Añadir Nuevo Invitado' : 'Editar Invitado'}
+            </h1>
             <div>
                 <a href="<c:url value='/guests?action=list'/>" class="btn btn-outline-primary me-2">
                     <i class="fas fa-list me-2"></i>Ver Lista
@@ -36,7 +42,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card shadow">
+            <div class="card shadow glass-effect">
                 <div class="card-body p-4">
                     <form action="<c:url value='/guests'/>" method="post" id="guestForm" novalidate>
                         <input type="hidden" name="action" value="${empty guest ? 'add' : 'update'}">
@@ -44,7 +50,7 @@
                             <input type="hidden" name="id" value="${guest.id}">
                         </c:if>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="name" class="form-label">Nombre <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="name" name="name" value="${guest.name}" required>
                             <div class="invalid-feedback">
@@ -52,7 +58,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" value="${guest.email}">
                             <div class="invalid-feedback">
@@ -60,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="phone" class="form-label">Teléfono</label>
                             <input type="tel" class="form-control" id="phone" name="phone" value="${guest.phone}"
                                    pattern="[0-9]{9}" title="Debe contener 9 dígitos">
@@ -90,7 +96,7 @@
     </div>
 
     <footer class="text-center mt-5">
-        <p class="text-muted">&copy; 2023 Sistema de Gestión de Invitados</p>
+        <p class="text-muted">&copy; 2025 Sistema de Gestión de Invitados</p>
     </footer>
 </div>
 
@@ -143,3 +149,4 @@
 </script>
 </body>
 </html>
+
