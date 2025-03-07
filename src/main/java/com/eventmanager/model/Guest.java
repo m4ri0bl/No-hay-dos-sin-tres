@@ -14,17 +14,17 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Guest implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
     private int id;
     private String name;
     private String email;
     private String phone;
     private boolean confirmed;
-    
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("created_at")
     private LocalDateTime createdAt;
-    
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("updated_at")
     private LocalDateTime updatedAt;
@@ -57,7 +57,7 @@ public class Guest implements Serializable {
     }
 
     // Constructor completo con fechas
-    public Guest(int id, String name, String email, String phone, boolean confirmed, 
+    public Guest(int id, String name, String email, String phone, boolean confirmed,
                  LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
