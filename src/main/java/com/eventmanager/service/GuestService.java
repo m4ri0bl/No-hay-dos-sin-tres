@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -154,10 +155,13 @@ public class GuestService {
             String url = SupabaseConfig.getSupabaseUrl() + REST_PATH;
             logger.debug("URL de petición: {}", url);
 
-            // Eliminar campos que no deben enviarse en la creación
-            guest.setId(0); // El ID será asignado por la base de datos
+            // Convertir el objeto Guest a un ObjectNode para poder manipular los campos
+            ObjectNode guestNode = objectMapper.valueToTree(guest);
 
-            String jsonBody = objectMapper.writeValueAsString(guest);
+            // Eliminar el campo id para que Supabase genere uno automáticamente
+            guestNode.remove("id");
+
+            String jsonBody = objectMapper.writeValueAsString(guestNode);
             logger.debug("Cuerpo de la petición: {}", jsonBody);
 
             HttpRequest request = HttpRequest.newBuilder()
