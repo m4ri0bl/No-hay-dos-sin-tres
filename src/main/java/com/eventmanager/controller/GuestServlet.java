@@ -96,15 +96,15 @@ public class GuestServlet extends HttpServlet {
     private void listGuests(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Guest> guests = guestService.getAllGuests();
         request.setAttribute("guests", guests);
-        
+
         // Obtener estadísticas para mostrar en la página
         int totalGuests = guestService.getTotalGuestCount();
         int confirmedGuests = guestService.getConfirmedGuestCount();
-        
+
         request.setAttribute("totalGuests", totalGuests);
         request.setAttribute("confirmedGuests", confirmedGuests);
         request.setAttribute("pendingGuests", totalGuests - confirmedGuests);
-        
+
         logger.info("Mostrando lista de invitados. Total: {}", guests.size());
         request.getRequestDispatcher("/WEB-INF/views/guest-list.jsp").forward(request, response);
     }
@@ -117,14 +117,14 @@ public class GuestServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Guest guest = guestService.getGuestById(id);
-        
+
         if (guest == null) {
             logger.warn("Intento de editar un invitado inexistente con ID: {}", id);
             request.setAttribute("errorMessage", "El invitado solicitado no existe");
             request.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(request, response);
             return;
         }
-        
+
         request.setAttribute("guest", guest);
         logger.info("Mostrando formulario para editar invitado con ID: {}", id);
         request.getRequestDispatcher("/WEB-INF/views/guest-form.jsp").forward(request, response);
@@ -145,7 +145,7 @@ public class GuestServlet extends HttpServlet {
 
         Guest guest = new Guest(name, email, phone, confirmed);
         int newId = guestService.addGuest(guest);
-        
+
         if (newId > 0) {
             // Añadir mensaje de éxito
             request.getSession().setAttribute("successMessage", "Invitado añadido correctamente");
@@ -175,7 +175,7 @@ public class GuestServlet extends HttpServlet {
 
         Guest guest = new Guest(id, name, email, phone, confirmed);
         boolean updated = guestService.updateGuest(guest);
-        
+
         if (updated) {
             // Añadir mensaje de éxito
             request.getSession().setAttribute("successMessage", "Invitado actualizado correctamente");
@@ -191,7 +191,7 @@ public class GuestServlet extends HttpServlet {
     private void deleteGuest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         boolean deleted = guestService.deleteGuest(id);
-        
+
         if (deleted) {
             // Añadir mensaje de éxito
             request.getSession().setAttribute("successMessage", "Invitado eliminado correctamente");
@@ -200,51 +200,51 @@ public class GuestServlet extends HttpServlet {
             request.getSession().setAttribute("errorMessage", "No se pudo eliminar el invitado");
             logger.warn("No se pudo eliminar el invitado con ID: {}", id);
         }
-        
+
         response.sendRedirect(request.getContextPath() + "/guests?action=list");
     }
 
     private void searchGuests(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchTerm = request.getParameter("searchTerm");
-        
+
         if (searchTerm == null || searchTerm.trim().isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/guests?action=list");
             return;
         }
-        
+
         List<Guest> guests = guestService.searchGuestsByName(searchTerm);
         request.setAttribute("guests", guests);
         request.setAttribute("searchTerm", searchTerm);
-        
+
         // Obtener estadísticas para mostrar en la página
         int totalGuests = guestService.getTotalGuestCount();
         int confirmedGuests = guestService.getConfirmedGuestCount();
-        
+
         request.setAttribute("totalGuests", totalGuests);
         request.setAttribute("confirmedGuests", confirmedGuests);
         request.setAttribute("pendingGuests", totalGuests - confirmedGuests);
-        
+
         logger.info("Búsqueda por '{}' encontró {} invitados", searchTerm, guests.size());
         request.getRequestDispatcher("/WEB-INF/views/guest-list.jsp").forward(request, response);
     }
-    
+
     private void showDashboard(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener estadísticas para el dashboard
         int totalGuests = guestService.getTotalGuestCount();
         int confirmedGuests = guestService.getConfirmedGuestCount();
         int pendingGuests = totalGuests - confirmedGuests;
-        
+
         request.setAttribute("totalGuests", totalGuests);
         request.setAttribute("confirmedGuests", confirmedGuests);
         request.setAttribute("pendingGuests", pendingGuests);
-        
+
         // Obtener los últimos 5 invitados añadidos
         List<Guest> recentGuests = guestService.getAllGuests();
         if (recentGuests.size() > 5) {
             recentGuests = recentGuests.subList(0, 5);
         }
         request.setAttribute("recentGuests", recentGuests);
-        
+
         logger.info("Mostrando dashboard");
         request.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(request, response);
     }

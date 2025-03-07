@@ -10,17 +10,7 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <!-- Configuración del Servlet principal -->
-    <servlet>
-        <servlet-name>GuestServlet</servlet-name>
-        <servlet-class>com.eventmanager.controller.GuestServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>GuestServlet</servlet-name>
-        <url-pattern>/guests</url-pattern>
-    </servlet-mapping>
-
+    <!-- Filtro para codificación UTF-8 -->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>com.eventmanager.filter.CharacterEncodingFilter</filter-class>
@@ -60,5 +50,5 @@
         <error-code>500</error-code>
         <location>/WEB-INF/views/error.jsp</location>
     </error-page>
-
 </web-app>
+
