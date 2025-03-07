@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 /**
  * Clase que representa a un invitado en el sistema.
@@ -23,16 +23,16 @@ public class Guest implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX")
     @JsonProperty("created_at")
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX")
     @JsonProperty("updated_at")
-    private LocalDateTime updatedAt;
+    private OffsetDateTime updatedAt;
 
     // Constructor vacío
     public Guest() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
+        this.createdAt = OffsetDateTime.now();
+        this.updatedAt = OffsetDateTime.now();
     }
 
     // Constructor con todos los campos
@@ -42,8 +42,8 @@ public class Guest implements Serializable {
         this.email = email;
         this.phone = phone;
         this.confirmed = confirmed;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
+        this.createdAt = OffsetDateTime.now();
+        this.updatedAt = OffsetDateTime.now();
     }
 
     // Constructor sin ID (para nuevos invitados)
@@ -52,13 +52,13 @@ public class Guest implements Serializable {
         this.email = email;
         this.phone = phone;
         this.confirmed = confirmed;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
+        this.createdAt = OffsetDateTime.now();
+        this.updatedAt = OffsetDateTime.now();
     }
 
     // Constructor completo con fechas
     public Guest(int id, String name, String email, String phone, boolean confirmed,
-                 LocalDateTime createdAt, LocalDateTime updatedAt) {
+                 OffsetDateTime createdAt, OffsetDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -109,19 +109,19 @@ public class Guest implements Serializable {
         this.confirmed = confirmed;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
+    public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
